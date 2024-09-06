@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Pravanth Technologies</title>
+  </head>
+  <body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#"><img src="/Images/Pravanth_Logo.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto text-right">
+                <li class="nav-item">
+                  <a class="nav-link" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about.html">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/work.html">Work Conducted by Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Enquiry</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Contact us</a>
+                  </li>
+              </ul>
+            </div>
+          </nav>
+    </div>
+    </div>
+    <style>
+      /* CSS for styling the form */
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 20px;
+      }
+
+      .form-container {
+          max-width: 500px;
+          margin: auto;
+          background: #fff;
+          padding: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          border-radius: 5px;
+      }
+
+      .form-container h2 {
+          text-align: center;
+          margin-bottom: 20px;
+      }
+
+      .form-container label {
+          display: block;
+          margin-bottom: 5px;
+      }
+
+      .form-container input[type="text"],
+      .form-container input[type="email"],
+      .form-container input[type="number"],
+      .form-container textarea {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 15px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+      }
+
+      .form-container input[type="submit"],
+      .form-container button {
+          width: 100%;
+          padding: 10px;
+          background-color: #28a745;
+          border: none;
+          border-radius: 4px;
+          color: white;
+          font-size: 16px;
+          cursor: pointer;
+          margin-top: 10px;
+      }
+
+      .form-container input[type="submit"]:hover,
+      .form-container button:hover {
+          background-color: #218838;
+      }
+
+      .error-message {
+          color: red;
+          font-size: 14px;
+      }
+
+      .captcha-section {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+      }
+
+      .captcha-refresh-button {
+          background-color: #007bff;
+          border: none;
+          color: white;
+          padding: 5px 10px;
+          font-size: 14px;
+          border-radius: 4px;
+          cursor: pointer;
+          margin-left: 10px;
+      }
+
+      .captcha-refresh-button:hover {
+          background-color: #0056b3;
+      }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+      <h2>Enquiry Form</h2>
+      <form id="contactForm">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email ID:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <!-- CAPTCHA Section -->
+          <div class="captcha-section">
+              <label>CAPTCHA: <span id="num1"></span> + <span id="num2"></span> = </label>
+              <input type="text" id="captchaAnswer" required>
+              <button type="button" class="captcha-refresh-button" onclick="generateCaptcha()">Refresh CAPTCHA</button>
+          </div>
+
+          <div id="errorMessage" class="error-message"></div>
+
+          <input type="submit" value="Submit">
+      </form>
+  </div>
+
+  <!-- Include the external JavaScript file -->
+  <!-- <script src="../Navigation.js"></script> -->
+
+    <script>
+// Function to generate new CAPTCHA numbers
+ function generateCaptcha() {
+  const num1 = Math.floor(Math.random() * 10) + 1; // Generates a number between 1 and 10
+  const num2 = Math.floor(Math.random() * 10) + 1; // Generates a number between 1 and 10
+  document.getElementById('num1').textContent = num1;
+  document.getElementById('num2').textContent = num2;
+  return { num1, num2 };
+}
+
+// Wait until the DOM is fully loaded before running the script
+document.addEventListener("DOMContentLoaded", function() {
+ 
+
+  // Initialize the CAPTCHA
+  let captchaValues = generateCaptcha();
+
+  // Form submission event
+  const contactForm = document.getElementById('contactForm');
+  contactForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form from submitting by default
+
+      const userAnswer = parseInt(document.getElementById('captchaAnswer').value);
+      const correctAnswer = captchaValues.num1 + captchaValues.num2;
+
+      if (userAnswer !== correctAnswer) {
+          document.getElementById('CaptchaMessage').textContent = "Incorrect CAPTCHA. Please try again.";
+          return;
+      } else {
+          document.getElementById('CaptchaMessage').textContent = ""; // Clear error message
+      }
+
+      // If all validations pass
+      alert("Form submitted successfully!");
+
+      // You can add your form submission logic here (e.g., send data to server)
+
+      // Clear the form
+      contactForm.reset();
+
+      // Generate a new CAPTCHA
+      captchaValues = generateCaptcha();
+  });
+});
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <section class="footer">
+        <h4>About Us</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+         Libero, quis quisquam culpa voluptas perferendis fugiat doloremque, 
+         optio nulla at inventore facere <br>mollitia recusandae cumque delectus, 
+         odio distinctio quibusdam provident minima.</p>
+         <div class="icons">
+           <i class=" fa fa-brands fa-facebook"></i>
+           <i class=" fa fa-brands fa-square-whatsapp"></i>
+           <i class=" fa fa-brands fa-x-twitter"></i>
+           <i class=" fa fa-brands fa-instagram"></i>
+           <i class=" fa fa-brands fa-linkedin"></i>
+
+         </div>
+
+
+ </section>
+  </body>
+</html>
