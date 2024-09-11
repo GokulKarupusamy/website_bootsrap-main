@@ -205,13 +205,18 @@ document.addEventListener("DOMContentLoaded", function() {
       captchaValues = generateCaptcha();
   });
 });
-fetch("YOUR_SCRIPT_URL", {
+fetch("https://script.google.com/macros/s/AKfycbxb5GOm5Lg5kABnykDybw8EyprhMQeUsctM8TYh7GAlxRYrcqoQYh8uBi3tLEvvlbU_jw/exec", {
   method: "POST",
   body: data
 }).then(response => response.text())
 .then(result => alert(result))
 .catch(error => alert("Error: " + error));
+
     </script>
+    <section>
+      <a class="gototop"href="#"><i class="fa fa-arrow-up" aria-hidden="true"></i>
+      </a>
+    </section>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -219,21 +224,36 @@ fetch("YOUR_SCRIPT_URL", {
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <section class="footer">
-        <h4>About Us</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-         Libero, quis quisquam culpa voluptas perferendis fugiat doloremque, 
-         optio nulla at inventore facere <br>mollitia recusandae cumque delectus, 
-         odio distinctio quibusdam provident minima.</p>
-         <div class="icons">
-           <i class=" fa fa-brands fa-facebook"></i>
-           <i class=" fa fa-brands fa-square-whatsapp"></i>
-           <i class=" fa fa-brands fa-x-twitter"></i>
-           <i class=" fa fa-brands fa-instagram"></i>
-           <i class=" fa fa-brands fa-linkedin"></i>
+      <h4>About Us</h4>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+       Libero, quis quisquam culpa voluptas perferendis fugiat doloremque, 
+       optio nulla at inventore facere <br>mollitia recusandae cumque delectus, 
+       odio distinctio quibusdam provident minima.</p>
+       <div class="icons">
+        <a href="https://www.google.com/" target="_blank">
+          <i class=" fa fa-brands fa-facebook" ></i>
+        </a>
+       <a href="https://www.google.com/"target="_blank">
+        <i class=" fa fa-brands fa-square-whatsapp"></i>
+       </a>
+       <a href="https://www.google.com/"target="_blank">
+        <i class=" fa fa-brands fa-square-whatsapp"></i>
+       </a>
+        <a href="https://www.google.com/"target="_blank">
+          <i class=" fa fa-brands fa-x-twitter"></i>
+        </a>
+        <a href="https://www.google.com/"target="_blank">
+          <i class=" fa fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.google.com/"target="_blank">
+          <i class=" fa fa-brands fa-linkedin"></i>
+        </a>
+         
+        
 
-         </div>
+       </div>
 
 
- </section>
-  </body>
+</section>
+</body>
 </html>
